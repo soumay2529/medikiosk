@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222 47% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222 47% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 217 91% 60%;
+
+    --radius: 0.75rem;
+  }
+
+  .high-contrast {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
+    --primary: 220 100% 25%;
+    --primary-foreground: 0 0% 100%;
+    --border: 0 0% 0%;
+    --input: 0 0% 0%;
+    --ring: 0 0% 0%;
+  }
+
+  /* Kiosk Font Scaling Classes */
+  body.font-sm {
+    font-size: 15px;
+  }
+  body.font-md {
+    font-size: 18px;
+  }
+  body.font-lg {
+    font-size: 21px;
+  }
+  body.font-xl {
+    font-size: 24px;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-primary/20;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* Touch-Optimized Kiosk Utilities */
+.kiosk-btn {
+  @apply min-h-[56px] min-w-[56px] px-6 py-4 rounded-xl font-medium transition-all active:scale-[0.98] select-none flex items-center justify-center gap-3 text-lg;
+}
+
+.kiosk-card {
+  @apply bg-card text-card-foreground rounded-2xl border-2 border-border shadow-sm p-6 transition-all;
+}
+
+.kiosk-card-clickable {
+  @apply kiosk-card hover:border-primary/50 active:scale-[0.99] cursor-pointer hover:shadow-md;
+}
+
+/* Custom Pulsating Microphone Animation */
+@keyframes pulseMic {
+  0% {
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 20px rgba(239, 68, 68, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+  }
+}
+
+.mic-recording {
+  animation: pulseMic 1.5s infinite;
+}
