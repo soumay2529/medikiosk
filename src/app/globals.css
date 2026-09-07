@@ -58,6 +58,11 @@
     font-size: 24px;
   }
 
+  /* Slow Mode gentle transition pacing */
+  body.slow-mode * {
+    transition-duration: 350ms !important;
+  }
+
   body {
     @apply bg-background text-foreground antialiased selection:bg-primary/20;
     font-feature-settings: "rlig" 1, "calt" 1;

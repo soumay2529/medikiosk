@@ -13,6 +13,7 @@ import { EmergencySettingsModal } from "../common/EmergencySettingsModal";
 export const ClientLayoutWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const fontSize = useKioskStore((state) => state.accessibility.fontSize);
   const highContrast = useKioskStore((state) => state.accessibility.highContrast);
+  const slowMode = useKioskStore((state) => state.accessibility.slowMode);
   const forceRedFlagModal = useKioskStore((state) => state.demoFlags.forceRedFlagModal);
   const setDemoFlag = useKioskStore((state) => state.setDemoFlag);
 
@@ -31,13 +32,16 @@ export const ClientLayoutWrapper: React.FC<{ children: React.ReactNode }> = ({ c
   }, [setTutorialOpen]);
 
   useEffect(() => {
-    // Dynamically apply font-size and contrast classes to document body
-    document.body.classList.remove("font-sm", "font-md", "font-lg", "font-xl", "high-contrast");
+    // Dynamically apply font-size, contrast, and slow-mode classes to document body
+    document.body.classList.remove("font-sm", "font-md", "font-lg", "font-xl", "high-contrast", "slow-mode");
     document.body.classList.add(`font-${fontSize}`);
     if (highContrast) {
       document.body.classList.add("high-contrast");
     }
-  }, [fontSize, highContrast]);
+    if (slowMode) {
+      document.body.classList.add("slow-mode");
+    }
+  }, [fontSize, highContrast, slowMode]);
 
   return (
     <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900 transition-colors">
