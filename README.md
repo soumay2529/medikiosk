@@ -225,5 +225,5 @@ medikiosk/
 ## 👨‍💻 Team & Hackathon Credentials
 * **Project**: MediKiosk — AI-Assisted Clinical Intake Kiosk
 * **Problem Statement**: SIH26047 (Smart India Hackathon)
-* **Developer / Lead**: Soumay Patel (`soumay2529`)
+* **Developer / Lead**: Soumay Gupta (`soumay2529`)
 * **Live Deployment**: [https://medikiosk-jet.vercel.app](https://medikiosk-jet.vercel.app)
