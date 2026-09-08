@@ -48,9 +48,6 @@ export const KioskHeader: React.FC = () => {
               <span className="text-xl sm:text-2xl font-black tracking-tight text-slate-900">
                 Medi<span className="text-blue-600">Kiosk</span>
               </span>
-              <span className="px-2 py-0.5 rounded-md bg-blue-50 text-blue-700 text-xs font-bold border border-blue-200">
-                SIH Edition
-              </span>
             </div>
             <p className="text-xs text-slate-500 font-medium hidden sm:block">
               {t.facilityName}
